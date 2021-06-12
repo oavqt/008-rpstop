@@ -5,7 +5,10 @@
 // const rock = addEventListener(onclick, );
 // const paper = addEventListener('onclick, );
 // const scissors = addEventListener('onclick, )
-function playerChoice() {}
+function playerChoice() {
+  let choice = prompt('rock, paper, scissors');
+  return choice;
+}
 //store player choice
 const playerSelection = playerChoice();
 //-generate random computer choice
@@ -43,22 +46,33 @@ function playRound(playerSelection, computerSelection) {
 function game(roundNum) {
   let countPlayer = 0;
   let countComputer = 0;
+  let roundOutcome = ''
   for (let u = 0; u < roundNum; u++) {
     playRound(playerSelection, computerSelection);
     if (playRound(playerSelection, computerSelection) === 'win') {
       countPlayer += 1;
-      console.log('Win');
+      roundOutcome = ('Win')
     } else if (playRound(playerSelection, computerSelection) === 'loss') {
       countComputer -= 1;
-      console.log('Loss');
+      roundOutcome = ('Loss')
     } else if (playRound(playerSelection, computerSelection) === 'tie') {
-      console.log('Tie');
+      roundOutcome = ('Tie')
     } else {
-      console.log('Error');
+      roundOutcome = ('Error')
     }
-  } 
-    if (countPlayer > countComputer)
+    console.log(roundOutcome)
+    playerChoice()
+  }
+  if (countPlayer > countComputer) {
+    console.log('You won!');
+  } else if ((countPlayer = countComputer)) {
+    console.log('Tied');
+  } else {
+    console.log('You Loss');
+  }
 }
+
+game(12);
 //reset game
 //
 
