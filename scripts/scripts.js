@@ -11,6 +11,7 @@ function playerChoice() {
 }
 //store player choice
 const playerSelection = playerChoice();
+
 //-generate random computer choice
 function getRandomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
@@ -46,22 +47,21 @@ function playRound(playerSelection, computerSelection) {
 function game(roundNum) {
   let countPlayer = 0;
   let countComputer = 0;
-  let roundOutcome = ''
+  let roundOutcome = '';
   for (let u = 0; u < roundNum; u++) {
-    playRound(playerSelection, computerSelection);
+    playRound(playerChoice(), computerPlay());
     if (playRound(playerSelection, computerSelection) === 'win') {
       countPlayer += 1;
-      roundOutcome = ('Win')
+      roundOutcome = 'Win';
     } else if (playRound(playerSelection, computerSelection) === 'loss') {
       countComputer -= 1;
-      roundOutcome = ('Loss')
+      roundOutcome = 'Loss';
     } else if (playRound(playerSelection, computerSelection) === 'tie') {
-      roundOutcome = ('Tie')
+      roundOutcome = 'Tie';
     } else {
-      roundOutcome = ('Error')
+      roundOutcome = 'Error';
     }
-    console.log(roundOutcome)
-    playerChoice()
+    console.log(roundOutcome);
   }
   if (countPlayer > countComputer) {
     console.log('You won!');
@@ -72,7 +72,7 @@ function game(roundNum) {
   }
 }
 
-game(12);
+game(5);
 //reset game
 //
 
