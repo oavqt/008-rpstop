@@ -1,67 +1,63 @@
 //rpsp
 //-user interface
-//-present player with a choice of rps
-//receive player choice
-// const rock = addEventListener(onclick, );
-// const paper = addEventListener('onclick, );
-// const scissors = addEventListener('onclick, )
-function playerChoice() {
-  let choice = prompt('rock, paper, scissors');
-  return choice;
+//-generate player choice using some kind input from user
+function playerPlay() {
+  return prompt('rock, paper, scissors');
 }
-//store player choice
-const playerSelection = playerChoice();
-
+let playerSelection = playerPlay();
 //-generate random computer choice
+let computerSelection = '';
+
 function getRandomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
+let computerPlay = () => {
+  return (computerSelection = getRandomChoice(['rock', 'paper', 'scissors']));
+};
 
-function computerPlay() {
-  let choice = ['rock', 'paper', 'scissors'];
-  return getRandomChoice(choice);
-}
-//store computer choice
-const computerSelection = computerPlay();
-//-compare choices
+//-compare inputs and return a value depending on outcome
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return 'tie';
+    return 'Tie';
   } else if (
     (playerSelection === 'paper' && computerSelection === 'rock') ||
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
-    return 'win';
+    return 'Win';
   } else if (
     (playerSelection === 'rock' && computerSelection === 'paper') ||
     (playerSelection === 'scissors' && computerSelection === 'rock') ||
     (playerSelection === 'paper' && computerSelection === 'scissors')
   ) {
-    return 'loss';
+    return 'Loss';
   } else {
-    return 'An error has occured';
+    return 'Error';
   }
 }
-//compare choices for x rounds
-function game(roundNum) {
+//-compare for x rounds and display game information(wins, loss, tie, overall game result)
+function game() {
   let countPlayer = 0;
   let countComputer = 0;
   let roundOutcome = '';
-  for (let u = 0; u < roundNum; u++) {
-    playRound(playerChoice(), computerPlay());
-    if (playRound(playerSelection, computerSelection) === 'win') {
+  for (let u = 1; u <= 5; u++) {
+    playRound(playerPlay(), computerPlay());
+    if (playRound(playerSelection, computerSelection) === 'Win') {
       countPlayer += 1;
       roundOutcome = 'Win';
-    } else if (playRound(playerSelection, computerSelection) === 'loss') {
-      countComputer -= 1;
+    } else if (playRound(playerSelection, computerSelection) === 'Loss') {
+      countComputer += 1;
       roundOutcome = 'Loss';
-    } else if (playRound(playerSelection, computerSelection) === 'tie') {
+    } else if (playRound(playerSelection, computerSelection) === 'Tie') {
       roundOutcome = 'Tie';
     } else {
       roundOutcome = 'Error';
     }
+    console.log(playerSelection)
+    console.log(computerSelection)
     console.log(roundOutcome);
+    console.log(countPlayer);
+    console.log(countComputer);
   }
   if (countPlayer > countComputer) {
     console.log('You won!');
@@ -71,11 +67,6 @@ function game(roundNum) {
     console.log('You Loss');
   }
 }
-
-game(5);
+game();
 //reset game
 //
-
-// const rock = addEventListener(onclick, );
-// const paper = addEventListener('onclick, );
-// const scissors = addEventListener('onclick, )
