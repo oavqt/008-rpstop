@@ -59,7 +59,7 @@ function game() {
     console.log(countPlayer);
     console.log(countComputer);
   }
-  if (countPlayer = countComputer) {
+  if (countPlayer === countComputer) {
     console.log('Tied!');
   } else if (countPlayer > countComputer) {
     console.log('You won!');
