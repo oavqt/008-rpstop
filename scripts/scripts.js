@@ -1,6 +1,7 @@
+//
 //rpsp
 //-user interface
-//-generate player choice using some kind input from user
+//-generate player choice using some kind of input from user
 let playerSelection = '';
 
 function playerPlay() {
