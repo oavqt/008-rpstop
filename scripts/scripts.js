@@ -1,21 +1,21 @@
 //rpsp
 //-user interface
 //-generate player choice using some kind input from user
+let playerSelection = '';
+
 function playerPlay() {
-  return prompt('rock, paper, scissors');
+  playerSelection = prompt('rock, paper, scissors');
 }
-let playerSelection = playerPlay();
 //-generate random computer choice
 let computerSelection = '';
 
 function getRandomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
-let computerPlay = () => {
-  return (computerSelection = getRandomChoice(['rock', 'paper', 'scissors']));
-};
-
-//-compare inputs and return a value depending on outcome
+function computerPlay() {
+  computerSelection = getRandomChoice(['rock', 'paper', 'scissors']);
+}
+//-compare player/computer choice and return a value depending on outcome
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return 'Tie';
@@ -35,12 +35,12 @@ function playRound(playerSelection, computerSelection) {
     return 'Error';
   }
 }
-//-compare for x rounds and display game information(wins, loss, tie, overall game result)
+//-compare player/computer choice for x rounds and display game information(wins, loss, tie, overall game result)
 function game() {
   let countPlayer = 0;
   let countComputer = 0;
   let roundOutcome = '';
-  for (let u = 1; u <= 5; u++) {
+  while (countPlayer < 5 && countComputer < 5) {
     playRound(playerPlay(), computerPlay());
     if (playRound(playerSelection, computerSelection) === 'Win') {
       countPlayer += 1;
@@ -53,18 +53,18 @@ function game() {
     } else {
       roundOutcome = 'Error';
     }
-    console.log(playerSelection)
-    console.log(computerSelection)
+    console.log(playerSelection);
+    console.log(computerSelection);
     console.log(roundOutcome);
     console.log(countPlayer);
     console.log(countComputer);
   }
-  if (countPlayer > countComputer) {
+  if (countPlayer = countComputer) {
+    console.log('Tied!');
+  } else if (countPlayer > countComputer) {
     console.log('You won!');
-  } else if ((countPlayer = countComputer)) {
-    console.log('Tied');
   } else {
-    console.log('You Loss');
+    console.log('You Loss!');
   }
 }
 game();
