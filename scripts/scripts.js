@@ -15,7 +15,7 @@ header.addEventListener('click', function () {
   } else if (header.innerText === 'Jan-Ken-Pon') {
     header.innerText = 'Rock, Paper, Scissors';
   } else if (header.innerText === 'Rock, Paper, Scissors') {
-    header.innerText = 'or the Doge Paw Paw';
+    header.innerText = 'or the Doge Paw Paw Paw';
   } else {
     header.innerText = 'Stop Clicking Please!';
   }

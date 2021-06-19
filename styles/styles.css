@@ -16,11 +16,20 @@ body {
   font-size: 3rem;
 }
 
-.content {
+#content {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   max-width: 20em;
   margin: auto;
+}
+#img-doge {
+    width: 20em;
+    height: auto;
+}
+#buttons {
+    margin-top: 2em;
 }
 button {
   width: 5em;
