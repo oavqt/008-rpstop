@@ -1,14 +1,26 @@
 //
 //rpsp
 //-user interface
-//-generate player choice using some kind of input from user
-let playerSelection = '';
+const buttons = document.getElementsByTagName('button');
 
-function playerPlay() {
-  playerSelection = prompt('rock, paper, scissors');
+const buttonsArray = [...buttons];
+//play
+buttonsArray.forEach((button) => {
+  button.addEventListener('click', play);
+});
+
+function play() {
+  playerSelection = this.value;
+  computerPlay();
+  console.log(playerSelection);
+  console.log(computerSelection);
+  playRound(playerSelection, computerSelection);
 }
+//-generate player choice
+let playerSelection;
+
 //-generate random computer choice
-let computerSelection = '';
+let computerSelection;
 
 function getRandomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
@@ -19,55 +31,21 @@ function computerPlay() {
 //-compare player/computer choice and return a value depending on outcome
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return 'Tie';
+    console.log('Tie');
   } else if (
     (playerSelection === 'paper' && computerSelection === 'rock') ||
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
-    return 'Win';
+    console.log('Win');
   } else if (
     (playerSelection === 'rock' && computerSelection === 'paper') ||
     (playerSelection === 'scissors' && computerSelection === 'rock') ||
     (playerSelection === 'paper' && computerSelection === 'scissors')
   ) {
-    return 'Loss';
+    console.log('Loss');
   } else {
-    return 'Error';
+    console.log('Error');
   }
 }
 //-compare player/computer choice for x rounds and display game information(wins, loss, tie, overall game result)
-function game() {
-  let countPlayer = 0;
-  let countComputer = 0;
-  let roundOutcome = '';
-  while (countPlayer < 5 && countComputer < 5) {
-    playRound(playerPlay(), computerPlay());
-    if (playRound(playerSelection, computerSelection) === 'Win') {
-      countPlayer += 1;
-      roundOutcome = 'Win';
-    } else if (playRound(playerSelection, computerSelection) === 'Loss') {
-      countComputer += 1;
-      roundOutcome = 'Loss';
-    } else if (playRound(playerSelection, computerSelection) === 'Tie') {
-      roundOutcome = 'Tie';
-    } else {
-      roundOutcome = 'Error';
-    }
-    console.log(playerSelection);
-    console.log(computerSelection);
-    console.log(roundOutcome);
-    console.log(countPlayer);
-    console.log(countComputer);
-  }
-  if (countPlayer === countComputer) {
-    console.log('Tied!');
-  } else if (countPlayer > countComputer) {
-    console.log('You won!');
-  } else {
-    console.log('You Loss!');
-  }
-}
-game();
-//reset game
-//
