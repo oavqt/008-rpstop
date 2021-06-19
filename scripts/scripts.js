@@ -4,18 +4,21 @@
 const buttons = document.getElementsByTagName('button');
 
 const buttonsArray = [...buttons];
-//play
-buttonsArray.forEach((button) => {
-  button.addEventListener('click', play);
-});
 
-function play() {
-  playerSelection = this.value;
-  computerPlay();
-  console.log(playerSelection);
-  console.log(computerSelection);
-  playRound(playerSelection, computerSelection);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //-generate player choice
 let playerSelection;
 
@@ -48,4 +51,15 @@ function playRound(playerSelection, computerSelection) {
     console.log('Error');
   }
 }
-//-compare player/computer choice for x rounds and display game information(wins, loss, tie, overall game result)
+//play
+buttonsArray.forEach((button) => {
+  button.addEventListener('click', play);
+});
+
+function play() {
+  playerSelection = this.value;
+  computerPlay();
+  console.log(playerSelection);
+  console.log(computerSelection);
+  playRound(playerSelection, computerSelection);
+}
