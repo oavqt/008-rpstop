@@ -5,19 +5,21 @@ const buttons = document.getElementsByTagName('button');
 
 const buttonsArray = [...buttons];
 
+const header = document.getElementById('header');
 
-
-
-
-
-
-
-
-
-
-
-
-
+header.addEventListener('click', function () {
+  if (header.innerText === 'Click Me To Play...') {
+    header.innerText = 'Ro-Sham-Bo';
+  } else if (header.innerText === 'Ro-Sham-Bo') {
+    header.innerText = 'Jan-Ken-Pon';
+  } else if (header.innerText === 'Jan-Ken-Pon') {
+    header.innerText = 'Rock, Paper, Scissors';
+  } else if (header.innerText === 'Rock, Paper, Scissors') {
+    header.innerText = 'or the Doge Paw Paw';
+  } else {
+    header.innerText = 'Stop Clicking Please!';
+  }
+});
 
 //-generate player choice
 let playerSelection;

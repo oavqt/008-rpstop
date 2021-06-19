@@ -7,4 +7,22 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #202020;
+  color: white;
+}
+
+#header {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 20em;
+  margin: auto;
+}
+button {
+  width: 5em;
+  height: 2em;
 }
