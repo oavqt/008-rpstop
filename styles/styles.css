@@ -24,7 +24,7 @@ body {
   height: 80vh;
   margin: auto;
 }
-.imgdoge {
+.img {
   width: 20em;
   height: auto;
 }
@@ -39,29 +39,34 @@ body {
 .btn__button {
   width: 12em;
   height: 12em;
-  border: none;
+  border: 1px solid transparent;
+  border-radius: 50%;
   background-color: transparent;
-}
-.btn__button--hoverpoint:hover {
-  transform: scale(1.1);
   transition: all 0.3s ease-out;
-  cursor: pointer;
+
 }
-.btn__button--cadetgray {
+.btn__button-hoverpoint:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  color: white;
+
+}
+.btn__button-highlight {
+    border: 1px solid yellow;
+    transform: scale(1.1);
+    border-radius: 50%;
+}
+.btn__button-cadetgray {
   color: #8d98a7;
 }
-.btn__button--almond {
+.btn__button-almond {
   color: #dcccbb;
 }
-.btn__button--sunray {
+.btn__button-sunray {
   color: #eab464;
 }
 .footer {
   display: flex;
   justify-content: center;
   margin: auto;
-}
-.footer__roundmessage {
-  position: fixed;
-  bottom: 0;
 }

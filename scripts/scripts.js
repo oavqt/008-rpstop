@@ -9,7 +9,8 @@ const header = document.getElementsByClassName('header')[0];
 
 const footer = document.getElementsByClassName('footer__roundmessage')[0];
 
-header.addEventListener('click', function () {
+header.addEventListener('click', function (e) {
+  console.log(e);
   setInterval(ol, 5000);
 });
 function ol() {
@@ -39,19 +40,19 @@ function computerPlay() {
 //-compare player/computer choice and return a value depending on outcome
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === 'paper' && computerSelection === 'rock') {
-    footer.textContent === 'You Won! Paper beats rock!';
+    footer.textContent = 'You Won! Paper beats rock!';
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    footer.innerText === 'You Won! Rock beats scissors!';
+    footer.textContent = 'You Won! Rock beats scissors!';
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    footer.innerText === 'You Won! Scissors beats paper!';
+    footer.textContent = 'You Won! Scissors beats paper!';
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-    footer.innerText === 'You Lose! Paper beats rock!';
+    footer.textContent = 'You Lose! Paper beats rock!';
   } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    footer.innerText === 'You Loss! Rock beats scissors!';
+    footer.textContent = 'You Loss! Rock beats scissors!';
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    footer.innerText === 'You Loss! Scissors beats paper!';
+    footer.textContent = 'You Loss! Scissors beats paper!';
   } else {
-    footer.innerText === 'You Tied';
+    footer.textContent = 'You Tied';
   }
 }
 
@@ -67,3 +68,16 @@ function play() {
   console.log(computerSelection);
   playRound(playerSelection, computerSelection);
 }
+
+// function removeHighlight(e) {
+//   if (this.classList === 'btn__button-highlight') {
+//     this.classList.remove('btn__button-highlight');
+//     console.log(this.classList);
+//   } else {
+//     this.classList.add('btn__button-highlight');
+//   }
+// }
+
+// btnsArray.forEach((btns) => {
+//   btns.addEventListener('click', removeHighlight);
+// });
