@@ -80,7 +80,7 @@ let computerCount = 0;
 function currentScore() {
   document.getElementsByClassName(
     'score'
-  )[0].textContent = `Player = ${playerCount} | ${computerCount} = Doge`;
+  )[0].textContent = `You ${playerCount} | ${computerCount} Doge`;
 }
 
 //play
