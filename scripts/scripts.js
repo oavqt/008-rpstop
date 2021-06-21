@@ -3,7 +3,7 @@
 
 //-user interface
 
-const btns = document.getElementsByClassName('btn__button');
+const btns = document.getElementsByClassName('btn__buttons');
 
 const btnsArray = [...btns];
 
@@ -83,6 +83,32 @@ function currentScore() {
   )[0].textContent = `You ${playerCount} | ${computerCount} Doge`;
 }
 
+function displayChoice() {
+  let rock = document.getElementsByClassName(
+    'imgcontainer__computer__img-rock'
+  )[0];
+  let paper = document.getElementsByClassName(
+    'imgcontainer__computer__img-paper'
+  )[0];
+  let scissors = document.getElementsByClassName(
+    'imgcontainer__computer__img-scissors'
+  )[0];
+  console.log(computerSelection)
+  if (computerSelection === 'rock') {
+    rock.setAttribute('style', 'display: block');
+    paper.setAttribute('style', 'display: none');
+    scissors.setAttribute('style', 'display: none');
+  } else if (computerSelection === 'paper') {
+    paper.setAttribute('style', 'display: block');
+    scissors.setAttribute('style', 'display: none');
+    rock.setAttribute('style', 'display: none');
+  } else if (computerSelection === 'scissors') {
+    scissors.setAttribute('style', 'display: block');
+    rock.setAttribute('style', 'display: none');
+    paper.setAttribute('style', 'display: none');
+  }
+}
+
 //play
 btnsArray.forEach((btns) => {
   btns.addEventListener('click', runGame);
@@ -91,19 +117,7 @@ btnsArray.forEach((btns) => {
 function runGame() {
   playerSelection = this.value;
   computerPlay();
+  displayChoice();
   playRound(playerSelection, computerSelection);
   currentScore();
 }
-
-// function removeHighlight(e) {
-//   if (this.classList === 'btn__button-highlight') {
-//     this.classList.remove('btn__button-highlight');
-//     console.log(this.classList);
-//   } else {
-//     this.classList.add('btn__button-highlight');
-//   }
-// }
-
-// btnsArray.forEach((btns) => {
-//   btns.addEventListener('click', removeHighlight);
-// });
