@@ -7,31 +7,61 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #202020;
+  background-color: #101010;
   color: white;
 }
 
-#header {
+.header {
   text-align: center;
   font-size: 3rem;
 }
 
-#content {
+.content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 20em;
+  height: 80vh;
   margin: auto;
 }
-#img-doge {
-    width: 20em;
-    height: auto;
+.imgdoge {
+  width: 20em;
+  height: auto;
 }
-#buttons {
-    margin-top: 2em;
+.btn {
+  margin-top: 5em;
 }
-button {
-  width: 5em;
-  height: 2em;
+.btn__img {
+  width: 10em;
+  height: auto;
+  color: wheat;
+}
+.btn__button {
+  width: 12em;
+  height: 12em;
+  border: none;
+  background-color: transparent;
+}
+.btn__button--hoverpoint:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+.btn__button--cadetgray {
+  color: #8d98a7;
+}
+.btn__button--almond {
+  color: #dcccbb;
+}
+.btn__button--sunray {
+  color: #eab464;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.footer__roundmessage {
+  position: fixed;
+  bottom: 0;
 }

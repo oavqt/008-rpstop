@@ -5,22 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
-    <title>rps</title>
+    <title>vs Doge</title>
   </head>
   <body>
-    <div id="container">
+    <div class="container">
       <header>
-        <h1 id="header">Click Me To Play...</h1>
+        <h1 class="header">Welcome!</h1>
       </header>
-      <content id="content">
-        <img id="img-doge" src="images/doge.png" alt="">
-        <div id="buttons">
-        <button class="rock" value="rock">Rock</button>
-        <button class="paper" value="paper">Paper</button>
-        <button class="scissors" value="scissors">Scissors</button>
+      <content class="content">
+        <img class="imgdoge" src="images/doge.png" alt="" />
+        <div class="btn">
+          <button class="btn__button btn__button--hoverpoint btn__button--cadetgray" value="rock">
+            <img class="btn__img" src="images/rock.png" alt="" /> Rock
+          </button>
+          <button class="btn__button btn__button--hoverpoint btn__button--almond" value="paper">
+            <img class="btn__img" src="images/paper.png" alt="" /> Paper
+          </button>
+          <button class="btn__button btn__button--hoverpoint btn__button--sunray" value="scissors">
+            <img class="btn__img" src="images/scissors.png" alt="" /> Scissors
+          </button>
         </div>
       </content>
-      <footer></footer>
+      <footer class="footer">
+        <div ><span class="footer__roundmessage"></span></div>
+      </footer>
     </div>
     <script src="scripts/scripts.js"></script>
   </body>

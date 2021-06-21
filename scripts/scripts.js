@@ -1,32 +1,35 @@
 //
 //rpsp
 //-user interface
-const buttons = document.getElementsByTagName('button');
+const btns = document.getElementsByClassName('btn__button');
 
-const buttonsArray = [...buttons];
+const btnsArray = [...btns];
 
-const header = document.getElementById('header');
+const header = document.getElementsByClassName('header')[0];
+
+const footer = document.getElementsByClassName('footer__roundmessage')[0];
 
 header.addEventListener('click', function () {
-  if (header.innerText === 'Click Me To Play...') {
-    header.innerText = 'Ro-Sham-Bo';
-  } else if (header.innerText === 'Ro-Sham-Bo') {
-    header.innerText = 'Jan-Ken-Pon';
-  } else if (header.innerText === 'Jan-Ken-Pon') {
-    header.innerText = 'Rock, Paper, Scissors';
-  } else if (header.innerText === 'Rock, Paper, Scissors') {
-    header.innerText = 'or the Doge Paw Paw Paw';
-  } else {
-    header.innerText = 'Stop Clicking Please!';
-  }
+  setInterval(ol, 5000);
 });
-
+function ol() {
+  if (header.textContent === 'Do Not Click Me!') {
+    header.textContent = "Okay, Let's Play Ro-Sham-Bo, or";
+  } else if (header.textContent === "Okay, Let's Play Ro-Sham-Bo, or") {
+    header.textContent = 'Jan-Ken-Pon, or';
+  } else if (header.textContent === 'Jan-Ken-Pon, or') {
+    header.textContent = 'Rock, Paper, Scissors, or';
+  } else if (header.textContent === 'Rock, Paper, Scissors, or') {
+    header.textContent = 'the Doge Paw Paw Paw';
+  } else {
+    header.textContent = 'Okay, You Can Stop Now!...';
+  }
+}
 //-generate player choice
 let playerSelection;
 
 //-generate random computer choice
 let computerSelection;
-
 function getRandomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
@@ -35,27 +38,26 @@ function computerPlay() {
 }
 //-compare player/computer choice and return a value depending on outcome
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    console.log('Tie');
-  } else if (
-    (playerSelection === 'paper' && computerSelection === 'rock') ||
-    (playerSelection === 'rock' && computerSelection === 'scissors') ||
-    (playerSelection === 'scissors' && computerSelection === 'paper')
-  ) {
-    console.log('Win');
-  } else if (
-    (playerSelection === 'rock' && computerSelection === 'paper') ||
-    (playerSelection === 'scissors' && computerSelection === 'rock') ||
-    (playerSelection === 'paper' && computerSelection === 'scissors')
-  ) {
-    console.log('Loss');
+  if (playerSelection === 'paper' && computerSelection === 'rock') {
+    footer.textContent === 'You Won! Paper beats rock!';
+  } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+    footer.innerText === 'You Won! Rock beats scissors!';
+  } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+    footer.innerText === 'You Won! Scissors beats paper!';
+  } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+    footer.innerText === 'You Lose! Paper beats rock!';
+  } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+    footer.innerText === 'You Loss! Rock beats scissors!';
+  } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+    footer.innerText === 'You Loss! Scissors beats paper!';
   } else {
-    console.log('Error');
+    footer.innerText === 'You Tied';
   }
 }
+
 //play
-buttonsArray.forEach((button) => {
-  button.addEventListener('click', play);
+btnsArray.forEach((btns) => {
+  btns.addEventListener('click', play);
 });
 
 function play() {
