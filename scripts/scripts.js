@@ -7,27 +7,25 @@ const btns = document.getElementsByClassName('btn__buttons');
 
 const btnsArray = [...btns];
 
-const header = document.getElementsByClassName('header')[0];
-
-const footer = document.getElementsByClassName('footer__roundmessage')[0];
-
-header.addEventListener('click', function (e) {
-  console.log(e);
-  setInterval(ol, 5000);
-});
-function ol() {
-  if (header.textContent === 'Do Not Click Me!') {
-    header.textContent = "Okay, Let's Play Ro-Sham-Bo, or";
-  } else if (header.textContent === "Okay, Let's Play Ro-Sham-Bo, or") {
-    header.textContent = 'Jan-Ken-Pon, or';
-  } else if (header.textContent === 'Jan-Ken-Pon, or') {
-    header.textContent = 'Rock, Paper, Scissors, or';
-  } else if (header.textContent === 'Rock, Paper, Scissors, or') {
-    header.textContent = 'the Doge Paw Paw Paw';
-  } else {
-    header.textContent = 'Okay, You Can Stop Now!...';
+function rotatingHeader() {
+  let words = [
+    ' Ro-Sham-Bo',
+    ' Jan-Ken-Pon',
+    ' Rock, Paper, Scissors',
+    ' the Doge Paw Paw Paw',
+  ];
+  let wrotation = document.getElementsByClassName('header')[0];
+  let trotation = document.getElementsByClassName('title')[0];
+  let currentWord = '';
+  let newWord = getRandomChoice(words);
+  while (newWord === currentWord) {
+    newWord = getRandomChoice(words);
   }
+  wrotation.textContent = newWord;
+  trotation.textContent = newWord;
 }
+
+window.addEventListener('load', rotatingHeader);
 
 //-generate player choice
 
@@ -36,6 +34,7 @@ let playerSelection;
 //-generate random computer choice
 
 let computerSelection;
+
 function getRandomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
@@ -54,7 +53,6 @@ function displayChoice() {
   let scissors = document.getElementsByClassName(
     'imgcontainer__computer__img-scissors'
   )[0];
-  console.log(computerSelection);
   if (computerSelection === 'rock') {
     rock.setAttribute('style', 'display: block');
     paper.setAttribute('style', 'display: none');
@@ -73,40 +71,51 @@ function displayChoice() {
 //-compare player/computer choice and return/display a value depending on outcome
 
 function playRound(playerSelection, computerSelection) {
+  let footer = document.getElementsByClassName('footer__roundmessage')[0];
+  let scoreColor = document.getElementsByClassName('score')[0];
   if (playerSelection === 'paper' && computerSelection === 'rock') {
     footer.textContent = 'You Won! Paper beats rock!';
+    scoreColor.setAttribute('style', 'background-color: #29DB91');
     playerCount += 1;
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     footer.textContent = 'You Won! Rock beats scissors!';
+    scoreColor.setAttribute('style', 'background-color: #29DB91');
     playerCount += 1;
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
     footer.textContent = 'You Won! Scissors beats paper!';
+    scoreColor.setAttribute('style', 'background-color: #29DB91');
     playerCount += 1;
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
     footer.textContent = 'You Lose! Paper beats rock!';
+    scoreColor.setAttribute('style', 'background-color: #db2b39');
     computerCount += 1;
   } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
     footer.textContent = 'You Loss! Rock beats scissors!';
+    scoreColor.setAttribute('style', 'background-color: #db2b39');
     computerCount += 1;
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
     footer.textContent = 'You Loss! Scissors beats paper!';
+    scoreColor.setAttribute('style', 'background-color: #db2b39');
     computerCount += 1;
   } else {
     footer.textContent = 'You Tied';
+    scoreColor.setAttribute('style', 'background-color: #29AEDB');
+    tieCount += 1;
   }
 }
 
 //count score and display it to user
 let playerCount = 0;
 let computerCount = 0;
+let tieCount = 0;
 
 function currentScore() {
   let score = document.getElementsByClassName('score')[0];
   let endgame = document.getElementsByClassName('container')[0];
   let endgamescreen = document.getElementsByClassName('endgame')[0];
   let endmessage = document.getElementsByClassName('endgame__message')[0];
-  score.textContent = `You ${playerCount} | ${computerCount} Doge`;
-  if (playerCount >= 5 || computerCount >= 5) {
+  score.textContent = `W : ${playerCount}   |   T : ${tieCount}   |   L : ${computerCount}`;
+  if (playerCount >= 12 || computerCount >= 12) {
     btnsArray.forEach((btns) => {
       btns.disabled = true;
     });
