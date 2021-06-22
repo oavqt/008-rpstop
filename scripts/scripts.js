@@ -11,10 +11,6 @@ const header = document.getElementsByClassName('header')[0];
 
 const footer = document.getElementsByClassName('footer__roundmessage')[0];
 
-const img = document.getElementsByClassName('btn__img');
-
-const imgs = [...img];
-
 header.addEventListener('click', function (e) {
   console.log(e);
   setInterval(ol, 5000);
@@ -46,8 +42,35 @@ function getRandomChoice(list) {
 function computerPlay() {
   computerSelection = getRandomChoice(['rock', 'paper', 'scissors']);
 }
+//display computer choice
 
-//-compare player/computer choice and return a value depending on outcome
+function displayChoice() {
+  let rock = document.getElementsByClassName(
+    'imgcontainer__computer__img-rock'
+  )[0];
+  let paper = document.getElementsByClassName(
+    'imgcontainer__computer__img-paper'
+  )[0];
+  let scissors = document.getElementsByClassName(
+    'imgcontainer__computer__img-scissors'
+  )[0];
+  console.log(computerSelection);
+  if (computerSelection === 'rock') {
+    rock.setAttribute('style', 'display: block');
+    paper.setAttribute('style', 'display: none');
+    scissors.setAttribute('style', 'display: none');
+  } else if (computerSelection === 'paper') {
+    paper.setAttribute('style', 'display: block');
+    scissors.setAttribute('style', 'display: none');
+    rock.setAttribute('style', 'display: none');
+  } else if (computerSelection === 'scissors') {
+    scissors.setAttribute('style', 'display: block');
+    rock.setAttribute('style', 'display: none');
+    paper.setAttribute('style', 'display: none');
+  }
+}
+
+//-compare player/computer choice and return/display a value depending on outcome
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === 'paper' && computerSelection === 'rock') {
@@ -81,31 +104,10 @@ function currentScore() {
   document.getElementsByClassName(
     'score'
   )[0].textContent = `You ${playerCount} | ${computerCount} Doge`;
-}
-
-function displayChoice() {
-  let rock = document.getElementsByClassName(
-    'imgcontainer__computer__img-rock'
-  )[0];
-  let paper = document.getElementsByClassName(
-    'imgcontainer__computer__img-paper'
-  )[0];
-  let scissors = document.getElementsByClassName(
-    'imgcontainer__computer__img-scissors'
-  )[0];
-  console.log(computerSelection)
-  if (computerSelection === 'rock') {
-    rock.setAttribute('style', 'display: block');
-    paper.setAttribute('style', 'display: none');
-    scissors.setAttribute('style', 'display: none');
-  } else if (computerSelection === 'paper') {
-    paper.setAttribute('style', 'display: block');
-    scissors.setAttribute('style', 'display: none');
-    rock.setAttribute('style', 'display: none');
-  } else if (computerSelection === 'scissors') {
-    scissors.setAttribute('style', 'display: block');
-    rock.setAttribute('style', 'display: none');
-    paper.setAttribute('style', 'display: none');
+  if (playerCount >= 5 || computerCount >= 5) {
+    btnsArray.forEach((btns) => {
+      btns.disabled = true;
+    });
   }
 }
 

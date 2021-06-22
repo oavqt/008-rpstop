@@ -10,19 +10,21 @@ body {
   background-color: #101010;
   color: white;
 }
-
 .header {
   text-align: center;
   font-size: 4rem;
   margin-top: 0;
 }
-
+.container {
+  display: none;
+}
 .content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 75vh;
+  width: 100%;
   margin: auto;
 }
 .imgcontainer {
@@ -57,8 +59,17 @@ body {
   display: none;
 }
 .score {
-  margin: 2em auto;
+  text-align: center;
+  width: 100%;
   font-size: 1.5rem;
+  background-color: #1f1f23;
+  margin-bottom: 1em;
+}
+.btn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #1f1f23;
 }
 .btn__img {
   width: 10em;
@@ -76,6 +87,10 @@ body {
   cursor: pointer;
   color: white;
 }
+.btn__buttons-hoverpoint:focus {
+  transform: scale(1.2);
+  color: white;
+}
 .btn__buttons-cadetgray {
   color: #8d98a7;
 }
@@ -86,8 +101,19 @@ body {
   color: #eab464;
 }
 .footer {
-  display: flex;
-  justify-content: center;
-  margin: auto;
+  text-align: center;
   font-size: 1.1rem;
+}
+.footer__tags {
+  position: fixed;
+  bottom: 1em;
+  text-align: center;
+  width: 100%;
+}
+.footer__tags__link {
+  text-decoration: none ;
+  color: white;
+}
+.endgame {
+  
 }
