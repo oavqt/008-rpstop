@@ -101,13 +101,24 @@ let playerCount = 0;
 let computerCount = 0;
 
 function currentScore() {
-  document.getElementsByClassName(
-    'score'
-  )[0].textContent = `You ${playerCount} | ${computerCount} Doge`;
+  let score = document.getElementsByClassName('score')[0];
+  let endgame = document.getElementsByClassName('container')[0];
+  let endgamescreen = document.getElementsByClassName('endgame')[0];
+  let endmessage = document.getElementsByClassName('endgame__message')[0];
+  score.textContent = `You ${playerCount} | ${computerCount} Doge`;
   if (playerCount >= 5 || computerCount >= 5) {
     btnsArray.forEach((btns) => {
       btns.disabled = true;
     });
+    if (playerCount > computerCount) {
+      endgame.setAttribute('style', 'display: none');
+      endgamescreen.setAttribute('style', 'display: flex');
+      endmessage.textContent = 'Congradulations, You Won.';
+    } else {
+      endgame.setAttribute('style', 'display: none');
+      endgamescreen.setAttribute('style', 'display: flex');
+      endmessage.textContent = 'Congradulations, You Lost.';
+    }
   }
 }
 

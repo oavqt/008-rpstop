@@ -108,8 +108,9 @@ body {
   bottom: 1em;
   text-align: center;
   width: 100%;
+  font-size: 1.1rem;
 }
-.footer__tags__link {
+.footer__tags__refs {
   text-decoration: none;
   color: white;
 }
@@ -132,6 +133,7 @@ body {
   background-color: #db2b39;
   border: none;
   color: white;
+  text-decoration: none;
 }
 .endgame__button:hover {
   cursor: pointer;
