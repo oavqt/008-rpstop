@@ -16,7 +16,6 @@ body {
   margin-top: 0;
 }
 .container {
-  display: none;
 }
 .content {
   display: flex;
@@ -62,7 +61,7 @@ body {
   text-align: center;
   width: 100%;
   font-size: 1.5rem;
-  background-color: #1f1f23;
+  background-color: #db2b39;
   margin-bottom: 1em;
 }
 .btn {
@@ -111,9 +110,31 @@ body {
   width: 100%;
 }
 .footer__tags__link {
-  text-decoration: none ;
+  text-decoration: none;
   color: white;
 }
 .endgame {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  width: 100%;
+  display: none;
+}
+.endgame__message {
+  font-size: 4rem;
+}
+.endgame__button {
+  font-size: 1.1rem;
+  padding: 0.5em 1em;
+  border-radius: 0.1em;
+  background-color: #db2b39;
+  border: none;
+  color: white;
+}
+.endgame__button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 3s ease-out;
 }
