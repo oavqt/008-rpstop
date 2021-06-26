@@ -1,5 +1,5 @@
 @import url(nreset.css);
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 * *::before *::after {
   box-sizing: border-box;
@@ -12,6 +12,7 @@ body {
 .header {
   text-align: center;
   font-size: 4rem;
+  font-weight: 700;
   margin-top: 0;
 }
 .content {
@@ -34,16 +35,20 @@ body {
 @keyframes imgcontainer__computer__img {
   0% {
     transform: scaleX(-1) rotate(0.73turn);
+    -webkit-transform: scaleX(-1) rotate(0.73turn);
   }
   100% {
     transform: scaleX(-1) rotate(0.7turn) scale(1.5);
+    -webkit-transform: scaleX(-1) rotate(0.7turn) scale(1.5);
   }
 }
 .imgcontainer__computer__img {
   width: 10em;
   height: auto;
   transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
   animation: imgcontainer__computer__img both 3s;
+  -webkit-animation: imgcontainer__computer__img both 3s;
 }
 .imgcontainer__computer__img-rock {
   display: none;
@@ -77,14 +82,17 @@ body {
   border: none;
   background-color: transparent;
   transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
 }
 .btn__buttons-hoverpoint:hover {
   transform: scale(1.2);
+  -webkit-transform: scale(1.2);
   cursor: pointer;
   color: white;
 }
 .btn__buttons-hoverpoint:focus {
   transform: scale(1.2);
+  -webkit-transform: scale(1.2);
   color: white;
 }
 .btn__buttons-cadetgray {
@@ -139,11 +147,14 @@ body {
   border: none;
   color: white;
   text-decoration: none;
+  transition: 1s;
+  -webkit-transition: 1s;
 }
 .endgame__button:hover {
   cursor: pointer;
-  transform: scale(1.1);
-  transition: all 3s ease-out;
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
