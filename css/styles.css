@@ -64,7 +64,6 @@ body {
   width: 100%;
   font-size: 1.5rem;
   background-color: #db2b39;
-  margin-bottom: 1em;
 }
 .btn {
   display: flex;
@@ -166,7 +165,7 @@ body {
     max-height: 65vh;
   }
   .header {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .imgcontainer__img {
     width: 15em;
@@ -188,8 +187,11 @@ body {
     flex-wrap: wrap;
   }
   .endgame__message {
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
+  }
+  .footer {
+    margin-top: 0.5em;
   }
 }
 @media (max-width: 375px) {
@@ -209,7 +211,7 @@ body {
     height: auto;
   }
   .endgame__message {
-    word-break: break-all;
+    word-break: break-word;
     hyphens: auto;
   }
 }
